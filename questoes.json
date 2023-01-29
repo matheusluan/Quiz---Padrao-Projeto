@@ -1,0 +1,70 @@
+{
+   "questoes":[
+       {
+           "codigo":1,
+           "materia":1,
+           "questao":"Resultado de: 1 + 1 ?",
+           "alternativas":[
+               {"codigo":"A","alternativa":"3","certa":false},
+               {"codigo":"B","alternativa":"4","certa":false},
+               {"codigo":"C","alternativa":"2","certa":true},
+               {"codigo":"D","alternativa":"5","certa":false}
+           ]
+       },
+       {
+        "codigo":2,
+        "materia":1,
+        "questao":"Resultado de: 150 / 0 ?",
+        "alternativas":[
+            {"codigo":"A","alternativa":"150","certa":false},
+            {"codigo":"B","alternativa":"0","certa":false},
+            {"codigo":"C","alternativa":"75","certa":false},
+            {"codigo":"D","alternativa":"Nao existe","certa":true}
+        ]
+       },
+       {
+        "codigo":3,
+        "materia":1,
+        "questao":"Resultado de: 3! ?",
+        "alternativas":[
+            {"codigo":"A","alternativa":"5","certa":false},
+            {"codigo":"B","alternativa":"6","certa":true},
+            {"codigo":"C","alternativa":"3","certa":false},
+            {"codigo":"D","alternativa":"9","certa":false}
+        ]
+       },
+       {
+        "codigo":4,
+        "materia":2,
+        "questao":"Qual a capital do Brasil ?",
+        "alternativas":[
+            {"codigo":"A","alternativa":"Rio de Janeiro","certa":false},
+            {"codigo":"B","alternativa":"Foz do Iguaçu","certa":false},
+            {"codigo":"C","alternativa":"Cidade de Leste","certa":false},
+            {"codigo":"D","alternativa":"Brasilia","certa":true}
+        ]
+       },
+       {
+        "codigo":5,
+        "materia":2,
+        "questao":"Qual a capital do Parana ?",
+        "alternativas":[
+            {"codigo":"A","alternativa":"Coritiba","certa":true},
+            {"codigo":"B","alternativa":"Foz do Iguacu","certa":false},
+            {"codigo":"C","alternativa":"Cascavel","certa":false},
+            {"codigo":"D","alternativa":"Pato Branco","certa":false}
+        ]
+       },
+       {
+        "codigo":6,
+        "materia":2,
+        "questao":"Quantos fuso-horario o Brasil possui?",
+        "alternativas":[
+            {"codigo":"A","alternativa":"1","certa":false},
+            {"codigo":"B","alternativa":"2","certa":false},
+            {"codigo":"C","alternativa":"3","certa":false},
+            {"codigo":"D","alternativa":"4","certa":true}
+        ]
+       }      
+    ]
+}
