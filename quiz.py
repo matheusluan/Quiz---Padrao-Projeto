@@ -2,8 +2,8 @@
 class BancoQuestoes:
 
     _instance = None  
-    def __init__(self):
-        self.banco = self.banco
+    def __init__(self, numero_questoes):
+        self.numero_questoes = numero_questoes
     
     #Singleton pra ler só uma vez o json
     def __new__(cls, *args, **kwargs):       
@@ -11,10 +11,20 @@ class BancoQuestoes:
             cls._instance = super().__new__(cls)
         return cls._instance
 
-    def lerJson():
+    def lerJson(self):
        import json
-       data = json.load(open('questoes.json'))    
-       return data['questoes']
+       data = json.load(open('questoes.json'))  
+       
+       count = 1
+
+       newQuestoes = []
+
+       for alt in data['questoes']:
+           if count <= self.numero_questoes :
+               newQuestoes.append(alt) 
+               count +=1
+         
+       return newQuestoes
     
 class Alternativa:
     # define o construtor:
@@ -72,6 +82,7 @@ from enum import Enum
 class MateriaType(Enum): 
     MATEMATICA = 1
     GEOGRAFIA = 2
+    TODAS = 3
 
 class MateriaFactory:
 
@@ -109,7 +120,7 @@ class Quiz:
                 quest.verificarResposta(resposta)
                 print("="*40)
 
-
+        
         if materia == MateriaType.GEOGRAFIA:           
            
            print("Voce escolheu o quiz de geografia.")
@@ -130,20 +141,60 @@ class Quiz:
                 quest.verificarResposta(resposta)
                 print("="*40)
 
+        if materia == MateriaType.TODAS:           
+           
+           print("Voce escolheu responder todas as materias.")
+           for questao in questoes:
+
+            if questao['materia'] == 1 : 
+                
+                quest = MateriaFactory.create(MateriaType.MATEMATICA, questao['codigo'], questao['questao'])
+                
+                for alt in questao['alternativas']:
+                    alternativa = Alternativa(alt['codigo'], alt['alternativa'], alt['certa'])
+                    quest.alternativas.append(alternativa) 
+
+                print("\n")
+                quest.imprimirQuestao()
+                print("="*40)
+                resposta = input("Digite sua resposta:")
+                quest.verificarResposta(resposta)
+                print("="*40)   
+    
+            if questao['materia'] == 2 : 
+                
+                quest = MateriaFactory.create(MateriaType.GEOGRAFIA, questao['codigo'], questao['questao'])
+                
+                for alt in questao['alternativas']:
+                    alternativa = Alternativa(alt['codigo'], alt['alternativa'], alt['certa'])
+                    quest.alternativas.append(alternativa) 
+
+                print("\n")
+                quest.imprimirQuestao()
+                print("="*40)
+                resposta = input("Digite sua resposta:")
+                quest.verificarResposta(resposta)
+                print("="*40)        
+
         else:
             return ('Não existe essa opção, quiz encerrado.')  
 
 if __name__ == '__main__':
-   
-    questoes = BancoQuestoes.lerJson()
+    banco = BancoQuestoes(5)
+
+    questoes = banco.lerJson()
+    
+    print(len(questoes))
  
-    print("[1] - Matematica \n[2] - Geografia")
-    opcao = input("Escolha uma materia :")
+    print("[1] - Matematica \n[2] - Geografia \n[3] - Todas as Materias")
+    opcao = input("Escolha uma opcao :")
 
     if(opcao == "1") :
-        quizz = Quiz.quizPorMateria(MateriaType.MATEMATICA, questoes);
+        quizz = Quiz.quizPorMateria(MateriaType.MATEMATICA, questoes)
     elif (opcao == "2") :
-        Quiz.quizPorMateria(MateriaType.GEOGRAFIA, questoes); 
+        Quiz.quizPorMateria(MateriaType.GEOGRAFIA, questoes)
+    elif (opcao == "3") :
+        Quiz.quizPorMateria(MateriaType.TODAS, questoes)
 
     
 
