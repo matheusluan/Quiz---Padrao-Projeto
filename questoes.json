@@ -49,7 +49,7 @@
         "materia":2,
         "questao":"Qual a capital do Parana ?",
         "alternativas":[
-            {"codigo":"A","alternativa":"Coritiba","certa":true},
+            {"codigo":"A","alternativa":"Curitiba","certa":true},
             {"codigo":"B","alternativa":"Foz do Iguacu","certa":false},
             {"codigo":"C","alternativa":"Cascavel","certa":false},
             {"codigo":"D","alternativa":"Pato Branco","certa":false}
@@ -65,6 +65,17 @@
             {"codigo":"C","alternativa":"3","certa":false},
             {"codigo":"D","alternativa":"4","certa":true}
         ]
-       }      
+       },
+      {
+        "codigo":7,
+        "materia":1,
+        "questao":"Resultado de 15 x 0 : ?",
+        "alternativas":[
+            {"codigo":"A","alternativa":"2","certa":false},
+            {"codigo":"B","alternativa":"1","certa":false},
+            {"codigo":"C","alternativa":"15","certa":false},
+            {"codigo":"D","alternativa":"0","certa":true}
+        ]
+       } 
     ]
 }
